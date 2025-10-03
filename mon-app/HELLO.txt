@@ -1,0 +1,37 @@
+import { useState } from "react";
+
+let username = "ibrahima";
+
+function App() {
+  const [count, setCount] = useState<number>(0);
+
+  const calcule = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <div className="flex flex-col bg-slate-400 items-center justify-center min-h-screen">
+      <h1 className="text-2xl font-bold">Hello {username}</h1>
+
+      <button
+        className="rounded-md mt-5 p-2 bg-slate-200 hover:bg-slate-300"
+        onClick={calcule}
+      >
+        Clique moi
+      </button>
+
+      <p className="mt-3 text-lg">Compteur : {count}</p>
+
+      <button
+        className="rounded-md mt-2 p-2 bg-blue-500 text-white hover:bg-blue-600"
+        onClick={() => setCount(count + 1)}
+      >
+        +1
+      </button>
+
+      <h1 className="mt-3 text-3xl font-extrabold">{count}</h1>
+    </div>
+  );
+}
+
+export default App;
