@@ -1,0 +1,53 @@
+
+import AddProductForm from "./components/addProductForm";
+import Swal from "sweetalert2";
+function App() {
+  const saveProduct = async (product: FormData): Promise<void> => {
+
+    const url = "https://mini-api-ogpc.onrender.com/products";
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(product),
+      });
+
+      if (!response.ok) {
+        throw new Error("Erreur lors de la sauvegarde du produit");
+      }
+
+      const data = await response.json();
+
+      Swal.fire({
+        icon: "success",
+        title: "Produit sauvegardé avec succès",
+        text: `Le produit ${data.name} a été ajouté.`,
+      });
+
+      console.log("Produit sauvegardé avec succès:", data);
+    } catch (error) {
+      console.error("Erreur:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Erreur",
+        text: "Impossible d'ajouter le produit.",
+      });
+    }
+  };
+
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-slate-200 p-5">
+      <h1 className="text-2xl font-bold mb-4 text-blue-700">
+        Ajouter un produit
+      </h1>
+
+      {/* Formulaire d’ajout de produit */}
+      <AddProductForm onSave={saveProduct} />
+    </div>
+  );
+}
+
+export default App;

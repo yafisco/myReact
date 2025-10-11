@@ -1,0 +1,93 @@
+import { useState } from "react";
+
+// ✅ Nouveau nom pour éviter le conflit avec le type global FormData
+export type ProductData = {
+  name: string;
+  price: number;
+  stock: number;
+};
+
+type AddProductFormProps = {
+  onSave: (product: ProductData) => void;
+};
+
+function AddProductForm({ onSave }: AddProductFormProps) {
+  const [formData, setFormData] = useState<ProductData>({
+    name: "",
+    price: 0,
+    stock: 0,
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Produit ajouté :", formData);
+    onSave(formData);
+    setFormData({ name: "", price: 0, stock: 0 });
+  };
+
+  return (
+    <div className="bg-white shadow-lg p-6 rounded-lg w-96">
+      <h2 className="text-xl font-bold mb-4 text-blue-700">
+        Formulaire de création de produit
+      </h2>
+
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col space-y-4 text-left"
+      >
+        <div>
+          <label className="bg-sky-600">Nom du produit</label>
+          <input
+            type="text"
+            value={formData.name}
+            onChange={(e) =>
+              setFormData({ ...formData, name: e.target.value })
+            }
+            placeholder="Nom"
+            className="p-2 border rounded-lg w-full"
+            required
+          />
+        </div>
+
+        <div>
+          <label className="bg-sky-600">Prix</label>
+          <input
+            type="number"
+            min={0}
+            value={formData.price}
+            onChange={(e) =>
+              setFormData({ ...formData, price: Number(e.target.value) })
+            }
+            placeholder="Prix"
+            className="p-2 border rounded-lg w-full"
+            required
+          />
+        </div>
+
+        <div>
+          <label className="bg-sky-600">Stock</label>
+          <input
+            type="number"
+            min={0}
+            value={formData.stock}
+            onChange={(e) =>
+              setFormData({ ...formData, stock: Number(e.target.value) })
+            }
+            placeholder="Stock"
+            className="p-2 border rounded-lg w-full"
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="p-2 rounded-lg font-semibold bg-lime-800 text-white hover:bg-lime-700 transition"
+        >
+          Ajouter
+        </button>
+      </form>
+    </div>
+  );
+}
+
+export default AddProductForm;
