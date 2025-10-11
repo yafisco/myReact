@@ -1,0 +1,136 @@
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
+
+import img1 from '../pages/LEARN 1.jpeg';
+import img2 from '../pages/LEARN 2.jpeg';
+import img3 from '../pages/LEARN 3.jpeg';
+import anglaisImg from '../pages/ANGLAIS.jpg';
+
+
+export default function Home() {
+  const images = [img1, img2, img3, img1, img2, img3]; // répété pour le loop continu
+
+  return (
+    <div className="min-h-screen px-4 py-10" style={{ backgroundColor: "#D8DADE" }}>
+     <section className="mb-6 text-center">
+  <h1 className="text-3xl font-bold text-blue-800 mb-2">
+    SPEAK. PRACTICE. PROGRESS
+  </h1>
+  <p className="text-lg text-gray-700">
+    L’ANGLAIS DANS LA JOIE ET LA BONNE HUMEUR
+  </p>
+</section>
+      {/* ====== Slider d'images continu ====== */}
+      <section className="mb-12">
+        <Swiper
+          modules={[Autoplay]}
+          slidesPerView={2.5}          // nombre de slides visibles
+          spaceBetween={20}            // espace entre les slides
+          loop={true}                  // boucle infinie
+          freeMode={true}              // glissement fluide
+          autoplay={{
+            delay: 0,                  // défilement constant
+            disableOnInteraction: false,
+          }}
+          speed={3000}                 // vitesse du défilement
+        >
+          {images.map((img, idx) => (
+            <SwiperSlide key={idx} className="rounded-lg overflow-hidden">
+              <img
+                src={img}
+                alt={`Slide ${idx + 1}`}
+                className="w-full h-60 object-cover rounded-lg"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        {/* ====== Section POUR TOUS LES STYLES d’apprentissages ====== */}
+<section className="mt-12 px-4 py-8 bg-neutral-400 rounded-lg shadow-lg max-w-5xl mx-auto">
+  <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center">
+    POUR TOUS LES STYLES d’apprentissages
+  </h2>
+  <p className="text-gray-700 text-center mb-6">
+    Des formations pour tous les niveaux : Pour se (re)mettre à parler, écrire et comprendre l’anglais comme un anglophone, depuis le confort de chez vous.
+  </p>
+
+  <div className="flex flex-col md:flex-row justify-center items-center gap-6">
+    {/* Partie 1 */}
+    <div className="p-6 bg-green-100 rounded-lg flex-1 text-blue-800 text-center">
+      <h3 className="font-semibold text-lg mb-2">Parler</h3>
+      <p className="text-gray-700 mb-4">
+        Pratique orale avec des enseignants passionnés.
+      </p>
+      <button className="px-4 py-2 bg-blue-800 text-white rounded hover:bg-blue-700 transition">
+        Découvrir
+      </button>
+    </div>
+
+    {/* Partie 2 */}
+    <div className="p-6 bg-green-100 rounded-lg flex-1 text-blue-800 text-center">
+      <h3 className="font-semibold text-lg mb-2">Écrire</h3>
+      <p className="text-gray-700 mb-4">
+        Exercices pour améliorer votre expression écrite.
+      </p>
+      <button className="px-4 py-2  bg-blue-800 text-white rounded hover:bg-green-700 transition">
+        Découvrir
+      </button>
+    </div>
+
+    {/* Partie 3 */}
+    <div className="p-6 bg-green-100 rounded-lg flex-1 text-blue-800 text-center">
+      <h3 className="font-semibold text-lg mb-2">Comprendre</h3>
+      <p className="text-gray-700 mb-4">
+        Compréhension orale et écrite comme un anglophone.
+      </p>
+      <button className="px-4 py-2 bg-blue-800 text-white rounded hover:bg-yellow-700 transition">
+        Découvrir
+      </button>
+    </div>
+  </div>
+</section>
+
+      </section>
+      <section className="mt-12">
+        <h2 className="text-2xl font-semibold mb-4 text-blue-800 text-center">
+          Pourquoi choisir notre programme ?
+        </h2>
+        <p className="text-center max-w-2xl mx-auto text-gray-700">
+          Parce qu’apprendre l’anglais ne doit pas être une corvée, mais une aventure passionnante 🌍.
+    Nos programmes sont conçus pour <span className="font-semibold text-blue-800">tous les styles d’apprenants</span> — 
+    que vous soyez débutant, intermédiaire ou avancé. 
+    Grâce à une pédagogie dynamique, des activités interactives et un suivi personnalisé, 
+    vous apprendrez à <span className="font-semibold">parler, comprendre et penser en anglais</span> 
+    de manière naturelle et confiante.
+        </p>
+      </section>
+      {/* ====== Cours populaires ====== */}
+      <section className="mt-12">
+        <h2 className="text-2xl font-semibold mb-4 text-blue-800 text-center">
+          CHOISISSEZ UN PROGRAMME DE FORMATION ADAPTEE A VOTRE PROFIL
+        </h2>
+       <img
+  src={anglaisImg}
+  alt="apprenant"
+  className="w-70 h-60 object-cover rounded-lg my-4 mx-auto"
+/>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="p-6 bg-blue-800 text-white text-center rounded shadow hover:shadow-lg transition-shadow">
+            ANGLAIS GENERAL
+          </div>
+          <div className="p-6 bg-blue-800 text-white text-center rounded shadow hover:shadow-lg transition-shadow">
+            ANGLAIS BUSINESS
+          </div>
+          <div className="p-6 bg-blue-800 text-white text-center rounded shadow hover:shadow-lg transition-shadow">
+            ANGLAIS INFORMATIQUE
+          </div>
+        </div>
+      </section>
+
+      {/* ====== Section supplémentaire (exemple) ====== */}
+      
+
+    </div>
+  );
+}
