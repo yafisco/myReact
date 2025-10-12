@@ -6,6 +6,8 @@ import img1 from "../pages/LEARN 1.jpeg";
 import img2 from "../pages/LEARN 2.jpeg";
 import img3 from "../pages/LEARN 3.jpeg";
 import anglaisImg from "../pages/ANGLAIS.jpg";
+import english from "../pages/English In General.jpeg";
+import  Speaker from "../pages/anglais info.jpeg";
 
 export default function Home() {
   const images = [img1, img2, img3, img1, img2, img3];
@@ -125,21 +127,41 @@ export default function Home() {
         <h2 className="text-3xl font-bold mb-6 text-blue-800 text-center">
           CHOISISSEZ UN PROGRAMME ADAPTÉ À VOTRE PROFIL
         </h2>
-        <img
-          src={anglaisImg}
+
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div>
+                <img
+          src={english}
           alt="Apprenant"
           className="w-64 h-48 object-cover rounded-lg my-6 mx-auto shadow-md"
         />
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           <div className="p-6 bg-blue-800 text-white text-center rounded-lg shadow hover:shadow-xl transition">
+            
             ANGLAIS GÉNÉRAL
           </div>
+          </div>
+          <div>
+            <img
+          src={anglaisImg}
+          alt="Lover"
+          className="w-64 h-48 object-cover rounded-lg my-6 mx-auto shadow-md"
+        />
           <div className="p-6 bg-blue-800 text-white text-center rounded-lg shadow hover:shadow-xl transition">
             ANGLAIS BUSINESS
+            <div>
+         </div>
+         </div>
           </div>
+          <div>
+             <img
+          src={Speaker}
+          alt="Lover"
+          className="w-64 h-48 object-cover rounded-lg my-6 mx-auto shadow-md"
+        />
           <div className="p-6 bg-blue-800 text-white text-center rounded-lg shadow hover:shadow-xl transition">
             ANGLAIS INFORMATIQUE
+          </div>
           </div>
         </div>
       </section>

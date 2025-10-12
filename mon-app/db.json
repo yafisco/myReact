@@ -1,0 +1,25 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "Anglais Informatique & Tech",
+      "description": "Maîtrisez le vocabulaire technique et communiquez efficacement dans l'univers IT",
+      "category": "informatique",
+      "price": "89 000 FCFA"
+    },
+    {
+      "id": 2,
+      "title": "Anglais Business",
+      "description": "Améliorez votre communication professionnelle et vos négociations",
+      "category": "business",
+      "price": "95 000 FCFA"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com"
+    }
+  ]
+}
