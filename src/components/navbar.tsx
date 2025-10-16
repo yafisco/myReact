@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-import Logo from "../components/Logo AEL  ONFP.jpg"; // Assure-toi que le logo est dans src/assets
+import Logo from "../components/Logo AEL  ONFP.jpg"; 
 
 export default function Navbar() {
   const { user, logout } = useAuth();
@@ -23,7 +23,7 @@ export default function Navbar() {
           <Link to="/courses" className="hidden md:inline-block text-blue-800 hover:text-blue-600 transition-colors">
             Cours
           </Link>
-          <Link to="/about" className="hidden md:inline-block text-blue-800 hover:text-blue-600 transition-colors">
+          <Link to="/About" className="hidden md:inline-block text-blue-800 hover:text-blue-600 transition-colors">
             À propos
           </Link>
 
